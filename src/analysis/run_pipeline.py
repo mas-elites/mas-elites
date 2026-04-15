@@ -3,7 +3,6 @@ src/analysis/run_pipeline.py
 
 End-to-end post-hoc pipeline: raw events.jsonl → power-law fit results.
 
-This is the single wiring function that connects all new modules.
 Called by scripts/fit_tails.py and scripts/run_sweep.py after execution.
 
 Pipeline stages:
