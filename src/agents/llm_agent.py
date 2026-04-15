@@ -1,10 +1,10 @@
 """
 src/agents/llm_agent.py
 
-LLM agent node. Replaces the old version that emitted AgentEvent.
-Now emits TraceRow (from loggers/trace_schema.py) directly to events.jsonl.
 
-Key changes from old version:
+Emits TraceRow into events.jsonl.
+
+What it does:
   - Emits TraceRow, not AgentEvent — all claim_id, parent_claim_ids,
     coordination_signals, subtask_id fields are present and logged.
   - message_id is assigned here (orchestrator role), not by the LLM.
