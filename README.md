@@ -2,7 +2,7 @@
 ### The Hidden Power Laws of Collective Cognition in LLM Multi-Agent Systems
 
 [![Paper](https://img.shields.io/badge/arXiv-2604.02674-b31b1b.svg)](https://arxiv.org/abs/2604.02674)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 
 ---
