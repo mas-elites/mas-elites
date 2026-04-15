@@ -3,9 +3,7 @@
 
 [![Paper](https://img.shields.io/badge/arXiv-2604.02674-b31b1b.svg)](https://arxiv.org/abs/2604.02674)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Status: Active Development](https://img.shields.io/badge/status-active%20development-orange)
 
-> **This repository is under active development.** Code and data are being released incrementally. Full experimental reproducibility support is coming soon.
 
 ---
 
