@@ -1,14 +1,14 @@
 """
 src/dti/dti.py
 
-Deficit-Triggered Integration (DTI) — paper Section 6 + Appendix C.
+Deficit-Triggered Integration (DTI).
 
 DTI is a cascade-local intervention that monitors the imbalance between
 expansion and integration within each active coordination cascade and
 triggers a forced merge when the deficit exceeds a condition-specific
 threshold.
 
-Algorithm (paper Algorithm 1 + Appendix C, Eq. A1–A5):
+Algorithm:
 ─────────────────────────────────────────────────────────────────────
 For each active root claim r, maintain local cascade state:
   t_r  — coordination events elapsed in current cascade segment
@@ -39,7 +39,7 @@ Design notes:
 - Each event incurs O(1) updates to (t_r, M_r).
 - No additional model calls except when deficit threshold is exceeded.
 - Parameters are fixed from baseline logs before intervention and contain
-  no outcome-tuned quantities (paper Appendix C).
+  no outcome-tuned quantities.
 - DTI does NOT alter agent prompts or capabilities. It intercepts the
   event stream between agent turns and injects a merge event when triggered.
 - The integration prompt consolidates active branch positions, identifies
@@ -47,8 +47,7 @@ Design notes:
 
 Where it lives in the codebase:
 ─────────────────────────────────────────────────────────────────────
-DTI sits in dti/ alongside a future dti_sweep.py. It is instantiated
-once per run in graph_runner.run() and receives every TraceRow via
+DTI is instantiated once per run in graph_runner.run() and receives every TraceRow via
 observe() immediately after bus.log() writes it. If the deficit
 threshold is exceeded, observe() calls the LLM, writes the merge
 TraceRow to the same bus, and returns the row. Otherwise returns None.
