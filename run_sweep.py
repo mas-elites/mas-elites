@@ -8,7 +8,7 @@ Experiment grid
   Topologies : 7  (chain, star, tree, full_mesh, sparse_mesh,
                    hybrid_modular, dynamic_reputation)
   Scales     : N ∈ {8, 16, 32, 64, 128, 256, 512}
-  Seeds      : 3  (0, 1, 2, 4, 5)
+  Seeds      : 5  (0, 1, 2, 4, 5)
   Benchmarks : GAIA (qa / reasoning), MultiAgentBench (planning / coordination),
                REALM-Bench (planning), SWE-bench (coding)
 
