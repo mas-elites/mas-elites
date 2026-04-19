@@ -31,7 +31,7 @@ Large Language Model (LLM) multi-agent systems are increasingly deployed as inte
 ## Installation
 
 ```bash
-git clone https://github.com/[anonymous]/mas-powerlaws.git
+git clone https://anonymous.4open.science/r/mas-elites-0645/
 cd mas-powerlaws
 pip install -r requirements.txt
 ```
