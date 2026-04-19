@@ -1,0 +1,8 @@
+topology,task_score__mean,task_score__std,completion_ratio__mean,completion_ratio__std,coherence_score__mean,coherence_score__std,integration_score__mean,integration_score__std,tokens_total__mean,tokens_total__std,claim_participation_rate__mean,claim_participation_rate__std,resolution_rate__mean,resolution_rate__std
+chain,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,162107.25,214836.206,0.0,0.0,0.0023,0.0142
+dynamic_reputation,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,89140.5267,58747.5236,0.7393,0.101,0.7393,0.101
+full_mesh,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,47889.2133,31977.1591,1.2958,0.6763,1.2958,0.6763
+hybrid_modular,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,59843.7133,83000.745,1.0,0.0,1.0,0.0
+sparse_mesh,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,47679.4533,31845.4509,1.0655,0.2194,1.0655,0.2194
+star,0.0,0.0,0.9107,0.0752,1.0,0.0,1.0,0.0,55158.86,56724.0188,0.9553,0.0376,0.9553,0.0376
+tree,0.0,0.0,0.5,0.0,1.0,0.0,1.0,0.0,27221.3533,24015.7059,0.9565,0.0431,0.9565,0.0431
