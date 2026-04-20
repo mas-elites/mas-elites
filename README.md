@@ -297,7 +297,7 @@ Full processed data and analysis outputs will be released via HuggingFace upon p
   title     = {Do Agent Societies Develop Intellectual Elites?
                The Hidden Power Laws of Collective Cognition in LLM Multi-Agent Systems},
   author    = {Anonymous},
-  journal   = {arXiv preprint arXiv:0000.12345},
+  journal   = {anonymous journal anon:0000.12345},
   year      = {2026}
 }
 ```
