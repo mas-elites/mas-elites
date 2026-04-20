@@ -5,7 +5,7 @@
 
 ## Overview
 
-*We present the first large-scale empirical study of coordination dynamics in LLM-based multi-agent systems. Analyzing over 1.5 million coordination events across tasks, topologies, and agent scales, we uncover three coupled empirical laws governing collective reasoning, and introduce Deficit-Triggered Integration (DTI) as a law-aware intervention.*
+*We present the first large-scale empirical study of coordination dynamics in LLM-based multi-agent systems*
 
 </div>
 
