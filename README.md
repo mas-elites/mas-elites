@@ -285,7 +285,7 @@ claim-traces/{benchmark}/{topology}/n{agents}/s{seed}/{task_id}/
     swe_prediction.json # Final task prediction
 ```
 
-Full processed data, code and analysis outputs will be released for reproducibility and further research upon paper acceptance.
+*Full processed data, code and analysis outputs will be released for reproducibility and further research upon paper acceptance.*
 
 ---
 
