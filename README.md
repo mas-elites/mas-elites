@@ -3,19 +3,17 @@
 # Do Agent Societies Develop Intellectual Elites?
 ### The Hidden Power Laws of Collective Cognition in LLM Multi-Agent Systems
 
-[![Paper](https://img.shields.io/badge/arXiv-2604.02674-b31b1b.svg?style=flat-square)](https://arxiv.org/abs/2604.02674)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/status-active%20development-orange?style=flat-square)](#)
-[![Events](https://img.shields.io/badge/coordination%20events-1.5M%2B-green?style=flat-square)](#)
 
-*The first large-scale empirical study of coordination dynamics in LLM multi-agent systems*
+## Overview
+
+*We present the first large-scale empirical study of coordination dynamics in LLM-based multi-agent systems. Analyzing over 1.5 million coordination events across tasks, topologies, and agent scales, we uncover three coupled empirical laws governing collective reasoning, and introduce Deficit-Triggered Integration (DTI) as a law-aware intervention.*
 
 </div>
 
 ---
 
 <p align="center">
-  <img src="images/global-ccdf.png" width="900"/>
+  <img src="images/global-ccdf.png" width="1000"/>
   <br/>
   <em>Heavy-tailed coordination cascades across all observables. CCDFs show a power-law regime (2 &lt; α̂ &lt; 3) with truncation at large x, consistent across tasks, topologies, and agent scales.</em>
 </p>
@@ -24,17 +22,7 @@
 
 ## Abstract
 
-Large Language Model (LLM) multi-agent systems are increasingly deployed as interacting agent societies, yet scaling these systems often yields diminishing or unstable returns, the causes of which remain poorly understood. We present the **first large-scale empirical study of coordination dynamics** in LLM-based multi-agent systems, introducing an atomic event-level formulation that reconstructs reasoning as cascades of coordination.
-
-Analyzing over **1.5 million interactions** across tasks, topologies, and scales, we uncover *three coupled laws*:
-
-- Coordination follows **heavy-tailed cascades**
-- Effort concentrates via **preferential attachment** into intellectual elites  
-- Extreme coordination events grow systematically with **agent society size**
-
-We show these effects arise from a single structural mechanism — an **integration bottleneck** — in which coordination expansion scales with system size while consolidation does not. To address this, we introduce **Deficit-Triggered Integration (DTI)**, which selectively increases integration under imbalance, improving performance precisely where coordination fails without suppressing large-scale reasoning.
-
-> Our results establish quantitative laws of collective cognition and identify coordination structure as a **fundamental, previously unmeasured axis** for understanding and improving scalable multi-agent intelligence.
+Large Language Model (LLM) multi-agent systems are increasingly deployed as interacting agent societies, yet scaling these systems often yields diminishing or unstable returns, the causes of which remain poorly understood. We present the first large-scale empirical study of coordination dynamics in LLM-based multi-agent systems, introducing an atomic event-level formulation that reconstructs reasoning as cascades of coordination. Analyzing over **1.5 Million** interactions across tasks, topologies, and scales, we uncover *three coupled laws*: coordination follows heavy-tailed cascades, concentrates via preferential attachment into intellectual elites, and produces increasingly frequent extreme events as system size grows. We show that these effects are coupled through a single structural mechanism: an **integration bottleneck**, in which coordination expansion scales with system size while consolidation does not, producing large but weakly integrated reasoning processes. To test this mechanism, we introduce **Deficit-Triggered Integration (DTI)**, which selectively increases integration under imbalance. DTI improves performance precisely where coordination fails, without suppressing large-scale reasoning. Together, our results establish quantitative laws of collective cognition and identify coordination structure as a fundamental, previously unmeasured axis for understanding and improving scalable multi-agent intelligence.
 
 ---
 
@@ -153,34 +141,108 @@ DTI **preserves the heavy-tailed cascade structure** while reducing excess tail 
 
 ```
 mas-elites/
+├── claim-traces/                  # Raw per-run coordination event traces
+│   └── {benchmark}/
+│       └── {topology}/
+│           └── {n_agents}/
+│               └── {seed}/
+│                   ├── events.jsonl        # Timestamped coordination events
+│                   ├── snapshots.jsonl     # Agent state snapshots
+│                   ├── run_config.json     # Run configuration
+│                   ├── run_metadata.json   # Runtime metadata
+│                   └── swe_prediction.json # Task prediction output
+├── images/                        # Figures for README and paper
 ├── src/
-│   ├── agents/             # Agent execution and topology routing
-│   ├── prompts/            # Base prompt, topology addenda, task addenda
-│   ├── trace/              # Trace logging schema and runtime logger
-│   ├── extraction/         # Post-hoc event extractor and claim DAG builder
-│   ├── metrics/            # Cascade metrics, TCE, observable computation
-│   ├── analysis/           # Power-law fitting, concentration, EVT scaling
-│   ├── dti/                # Deficit-Triggered Integration implementation
-│   └── expansion/          # Benchmark-conditioned workload expansion module
-├── scripts/
-│   ├── run_sweep.py        # Full experimental sweep with resume support
-│   └── run_analysis.py     # Post-hoc analysis pipeline
-├── configs/                # Sweep and experiment configuration files
-├── data/                   # Coordination event data (released incrementally)
-├── notebooks/              # Analysis and figure reproduction notebooks
-└── requirements.txt
+│   ├── agents/                    # Agent base classes and LLM/peer agent implementations
+│   │   ├── base_agent.py
+│   │   ├── llm_agent.py
+│   │   └── peer_agent.py
+│   ├── analysis/                  # End-to-end analysis pipeline
+│   │   └── run_pipeline.py
+│   ├── benchmark_wrappers/        # GAIA, SWE-bench, REALM-Bench, MultiAgentBench loaders
+│   │   ├── gaia.py
+│   │   ├── swebench.py
+│   │   ├── realm_bench.py
+│   │   ├── marble.py
+│   │   ├── task_expander.py       # Benchmark-conditioned workload expansion
+│   │   └── task_curator.py
+│   ├── dti/                       # Deficit-Triggered Integration implementation
+│   │   └── dti.py
+│   ├── event_extraction/          # Post-hoc event extractor and claim DAG builder
+│   │   ├── event_extractor.py
+│   │   ├── graph_builder.py
+│   │   ├── coordination.py
+│   │   └── tce.py
+│   ├── execution/                 # LangGraph runner and MAS execution state
+│   │   ├── runner.py
+│   │   ├── graph_runner.py
+│   │   └── mas_state.py
+│   ├── loggers/                   # Trace logging schemas and event bus
+│   │   ├── event_bus.py
+│   │   ├── schemas.py
+│   │   ├── state.py
+│   │   └── trace_schema.py
+│   ├── metrics/                   # Gini, Lorenz, and inequality metrics
+│   │   └── inequality.py
+│   ├── observables/               # Cascade metrics, TCE, DAG construction
+│   │   ├── cascade_metrics.py
+│   │   └── dag_builder.py
+│   ├── prompts/                   # Base prompt, topology/task addenda, response parser
+│   │   ├── base_prompt.py
+│   │   ├── topology_addenda.py
+│   │   ├── task_addenda.py
+│   │   ├── action_contract.py
+│   │   ├── response_parser.py
+│   │   ├── topology/              # Per-topology prompt fragments
+│   │   └── tast_family/           # Per-task-family prompt fragments
+│   ├── tables/                    # Table generation for paper
+│   │   └── generate_tables.py
+│   ├── tail_fitting/              # Power-law MLE fitting (Clauset-Shalizi-Newman)
+│   │   └── powerlaw_fit.py
+│   ├── tools/                     # Agent tool definitions and web search
+│   │   └── tools.py
+│   ├── topologies/                # Topology graph implementations
+│   │   ├── base.py
+│   │   ├── chain.py
+│   │   ├── star.py
+│   │   ├── tree.py
+│   │   ├── full_mesh.py
+│   │   ├── sparse_mesh.py
+│   │   ├── dynamic_reputation.py
+│   │   ├── hybrid.py
+│   │   └── modular.py
+│   ├── visualization/             # Figure generation scripts
+│   │   ├── ccdf_panel.py          # Fig 1, 3: CCDF plots
+│   │   ├── ccdf_by_family.py
+│   │   ├── lorenz_curves.py       # Fig 4: Elite concentration curves
+│   │   ├── xmax_scaling.py        # Fig 7: Extreme-value scaling
+│   │   ├── event_vs_success.py    # Fig 6: Coordination vs. task success
+│   │   ├── topology_comparison.py
+│   │   └── lr_test_heatmap.py
+│   └── context_builder.py         # Agent context assembly
+├── .env                           # API keys (not tracked)
+├── LICENSE
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## Installation
+## Installation & Setup
 
+Clone the repository:
 ```bash
 git clone https://anonymous.4open.science/r/mas-elites-0645/
-cd mas-powerlaws
+```
+
+Install dependencies:
+```bash
+conda create -n mas-elites python=3.11 -y
+conda activate mas-elites
 pip install -r requirements.txt
 ```
 
+Add your OpenAI API key:
 ```bash
 export OPENAI_API_KEY=your_key_here
 ```
@@ -194,7 +256,7 @@ Verify the sweep plan without executing:
 python scripts/run_sweep.py --dry-run
 ```
 
-Small-scale test:
+Small-scale smoke test:
 ```bash
 python scripts/run_sweep.py \
     --benchmarks gaia \
@@ -212,9 +274,20 @@ The sweep script supports `--resume` (skips completed runs), parallel workers, l
 
 ---
 
-## Data Release
+## Data
 
-Please see `claim_traces\` for raw coordination event traces. Full processed coordination event data and analysis outputs will be released for reproducibility and further research upon paper acceptance. The full dataset (>1.5M events across ~98,000 runs) will be available via a linked data repository on HuggingFace.
+Raw coordination event traces are included in `claim-traces/` and organized as:
+
+```
+claim-traces/{benchmark}/{topology}/n{agents}/s{seed}/{task_id}/
+    events.jsonl        # Timestamped coordination event log
+    snapshots.jsonl     # Per-step agent state snapshots
+    run_config.json     # Topology, scale, and task configuration
+    run_metadata.json   # Timing and completion metadata
+    swe_prediction.json # Final task prediction
+```
+
+Full processed data and analysis outputs will be released via HuggingFace upon paper acceptance.
 
 ---
 
