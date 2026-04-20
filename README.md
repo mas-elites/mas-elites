@@ -9,7 +9,6 @@
 
 </div>
 
----
 
 <p align="center">
   <img src="images/global-ccdf.png" width="1000"/>
