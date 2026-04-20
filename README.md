@@ -272,7 +272,7 @@ The sweep script supports `--resume` (skips completed runs), parallel workers, l
 
 ---
 
-## Data
+## Data & Code Release
 
 Raw coordination event traces are included in `claim-traces/` and organized as:
 
@@ -285,7 +285,7 @@ claim-traces/{benchmark}/{topology}/n{agents}/s{seed}/{task_id}/
     swe_prediction.json # Final task prediction
 ```
 
-Full processed data and analysis outputs will be released via HuggingFace upon paper acceptance.
+Full processed data, code and analysis outputs will be released for reproducibility and further research upon paper acceptance.
 
 ---
 
