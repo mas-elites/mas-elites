@@ -28,7 +28,7 @@
   "benchmarks": [
     "MARBLE"
   ],
-  "total_events": 129905,
+  "total_events": 1529905,
   "total_tokens": 133490783,
   "total_wall_time": 108836.3,
   "runs": [
