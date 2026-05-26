@@ -1,6 +1,6 @@
 <div align="center">
 
-# Do Agent Societies Develop Intellectual Elites? *The Hidden Power Laws of Collective Cognition in LLM Multi-Agent Systems*
+# Why More Agents Do Not Always Help: Empirical Power Laws of Coordination in LLM Agent Societies*
 
 
 ## Overview
