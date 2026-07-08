@@ -94,7 +94,7 @@ ALL_TOPOLOGIES: List[str] = [
     "dynamic_reputation",
 ]
 
-ALL_SCALES: List[int] = [8, 16, 32, 64, 128]
+ALL_SCALES: List[int] = [8, 16, 32, 64, 128, 256, 512]
 
 ALL_SEEDS: List[int] = [0, 1, 2]
 
