@@ -96,7 +96,7 @@ ALL_TOPOLOGIES: List[str] = [
 
 ALL_SCALES: List[int] = [8, 16, 32, 64, 128, 256, 512]
 
-ALL_SEEDS: List[int] = [0, 1, 2]
+ALL_SEEDS: List[int] = [0, 1, 2, 3, 4]
 
 # (benchmark, task_family, max_tasks)  — sizes match paper Table 26
 BENCHMARK_CONFIGS: List[Tuple[str, str, int]] = [
