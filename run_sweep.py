@@ -98,14 +98,13 @@ ALL_SCALES: List[int] = [8, 16, 32, 64, 128, 256, 512]
 
 ALL_SEEDS: List[int] = [0, 1, 2, 3, 4]
 
-# (benchmark, task_family, max_tasks)  — sizes match paper Table 26
 BENCHMARK_CONFIGS: List[Tuple[str, str, int]] = [
-    ("gaia",     "qa",           20),
-    ("gaia",     "reasoning",    20),
-    ("marble",   "planning",     20),
-    ("marble",   "coordination", 10),
-    ("realm",    "planning",     20),
-    ("swebench", "coding",       10),
+    ("gaia",     "qa",           112),
+    ("gaia",     "reasoning",    47),
+    ("marble",   "planning",     2),
+    ("marble",   "coordination", 4),
+    ("realm",    "planning",     14),
+    ("swebench", "coding",       233),
 ]
 
 
